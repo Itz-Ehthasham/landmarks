@@ -20,7 +20,8 @@ expo-env.d.ts
 
 #environment variables
 .env
-
+.env*.local
+.env*
 # Metro
 .metro-health-check*
 

@@ -1,0 +1,17 @@
+# Environment variables - never read by Cursor AI
+.env
+.env.local
+.env*.local
+.env.*
+
+# Sensitive configuration files
+*.key
+*.pem
+*.p8
+*.p12
+*.jks
+*.mobileprovision
+
+# Other sensitive files
+secrets.json
+config/secrets.*
