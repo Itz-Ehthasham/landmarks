@@ -1,6 +1,6 @@
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import { useAuth } from "../contexts/AuthContext";
 import { router } from "expo-router";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function HomeScreen() {
   const { user, signOut } = useAuth();
@@ -12,7 +12,7 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome!</Text>
+      <Text style={styles.title}>Welcome to Landmarks!</Text>
       <Text style={styles.subtitle}>
         You are signed in as: {user?.email}
       </Text>
