@@ -5,10 +5,6 @@ pipeline {
     timeout(time: 15, unit: 'MINUTES')
   }
 
-  tools {
-    nodejs 'Node 18'
-  }
-
   stages {
     stage('Install') {
       steps {
