@@ -1,15 +1,15 @@
+import { Link, router } from 'expo-router'
 import { useState } from 'react'
 import {
-  View,
+  ActivityIndicator,
+  Alert,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-  StyleSheet,
-  Alert,
-  ActivityIndicator,
+  View,
 } from 'react-native'
 import { useAuth } from '../../contexts/AuthContext'
-import { Link, router } from 'expo-router'
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('')
@@ -72,7 +72,7 @@ export default function LoginScreen() {
       </TouchableOpacity>
 
       <View style={styles.linkContainer}>
-        <Text style={styles.linkText}>Don't have an account? </Text>
+        <Text style={styles.linkText}>Don&apos;t have an account? </Text>
         <Link href="/auth/signup" asChild>
           <TouchableOpacity>
             <Text style={styles.link}>Sign Up</Text>
