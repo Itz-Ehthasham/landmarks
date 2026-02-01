@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import { useAuth } from '../../contexts/AuthContext'
 
 export default function LoginScreen() {
@@ -35,7 +36,7 @@ export default function LoginScreen() {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Welcome Back</Text>
       <Text style={styles.subtitle}>Sign in to continue</Text>
 
@@ -79,7 +80,7 @@ export default function LoginScreen() {
           </TouchableOpacity>
         </Link>
       </View>
-    </View>
+    </SafeAreaView>
   )
 }
 

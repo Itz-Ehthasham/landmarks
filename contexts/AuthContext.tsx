@@ -1,5 +1,7 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Session, User } from '@supabase/supabase-js'
+import React, { createContext, useContext, useEffect, useState } from 'react'
+import { ONBOARDING_COMPLETED_KEY } from '../lib/onboardingStorage'
 import { supabase } from '../lib/supabase'
 
 interface AuthContextType {
@@ -55,6 +57,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   const signOut = async () => {
+    // Clear the onboarding flag so users see onboarding again after sign-out
+    await AsyncStorage.removeItem(ONBOARDING_COMPLETED_KEY)
     await supabase.auth.signOut()
   }
 

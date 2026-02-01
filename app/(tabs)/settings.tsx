@@ -8,7 +8,10 @@ import {
     TouchableOpacity,
     View,
 } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from "../../contexts/AuthContext";
+import { ONBOARDING_COMPLETED_KEY } from '../../lib/onboardingStorage';
 
 // Samsung One UI colors
 const COLORS = {
@@ -36,8 +39,9 @@ export default function SettingsScreen() {
           text: "Sign Out",
           style: "destructive",
           onPress: async () => {
+            await AsyncStorage.removeItem(ONBOARDING_COMPLETED_KEY);
             await signOut();
-            router.replace("/auth/login");
+            router.replace("/onboarding");
           },
         },
       ],
@@ -50,7 +54,8 @@ export default function SettingsScreen() {
   };
 
   return (
-    <ScrollView
+    <SafeAreaView style={styles.container}>
+      <ScrollView
       style={styles.container}
       contentContainerStyle={styles.scrollContent}
       showsVerticalScrollIndicator={false}
@@ -134,7 +139,8 @@ export default function SettingsScreen() {
           </TouchableOpacity>
         </View>
       </View>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 

@@ -16,6 +16,7 @@ import {
     TouchableOpacity,
     View,
 } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuth } from "../../contexts/AuthContext";
 import { deletePost, fetchProfile, fetchUserPosts, getAvatarPublicUrl, getPostImagePublicUrl, updatePost } from "../../lib/profile";
 
@@ -184,7 +185,7 @@ export default function ProfileScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <FlatList
         data={posts}
         keyExtractor={(item) => item.id}
@@ -350,7 +351,7 @@ export default function ProfileScreen() {
           </View>
         </KeyboardAvoidingView>
       </Modal>
-    </View>
+    </SafeAreaView>
   );
 }
 

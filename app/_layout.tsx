@@ -7,9 +7,10 @@ export default function RootLayout() {
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="index" />
         <Stack.Screen name="onboarding" />
-        <Stack.Screen name="auth/login" options={{ headerShown: true, title: "Sign In" }} />
-        <Stack.Screen name="auth/signup" options={{ headerShown: true, title: "Sign Up" }} />
+        <Stack.Screen name="auth/login" options={{ headerShown: false }} />
+        <Stack.Screen name="auth/signup" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="profile/[userId]" options={{ headerShown: false, presentation: "modal" }} />
       </Stack>
     </AuthProvider>
   );

@@ -13,7 +13,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import { ONBOARDING_COMPLETED_KEY } from "../lib/onboardingStorage";
 
 const { width, height } = Dimensions.get("window");
@@ -84,7 +84,7 @@ export default function OnboardingScreen() {
   );
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar style="light" />
 
       {/* Horizontal scrollable onboarding screens */}
@@ -114,9 +114,9 @@ export default function OnboardingScreen() {
       {/* Bottom content: dots, title, description, button */}
       <View style={[styles.bottomContent, { paddingBottom: insets.bottom + 24 }]}>
         <View style={styles.pagination}>
-          {onboardingData.map((_, index) => (
+          {onboardingData.map((item, index) => (
             <View
-              key={index}
+              key={`dot-${item.id}`}
               style={[
                 styles.dot,
                 index === currentIndex ? styles.activeDot : styles.inactiveDot,
@@ -138,7 +138,7 @@ export default function OnboardingScreen() {
           </Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

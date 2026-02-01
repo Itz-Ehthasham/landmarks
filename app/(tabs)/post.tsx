@@ -11,6 +11,7 @@ import {
     TouchableOpacity,
     View,
 } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from "../../lib/supabase";
 
 export default function PostScreen() {
@@ -92,7 +93,8 @@ export default function PostScreen() {
   }
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContent}>
       <Text style={styles.heading}>Create Post</Text>
 
       <View style={styles.card}>
@@ -123,13 +125,17 @@ export default function PostScreen() {
           <Text style={styles.submitText}>Submit Post</Text>
         </TouchableOpacity>
       </View>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
+    flex: 1,
     backgroundColor: "#F2F2F7",
+  },
+  scrollContent: {
+    padding: 16,
   },
   heading: {
     fontSize: 22,

@@ -8,6 +8,7 @@ import {
   Alert,
   ActivityIndicator,
 } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import { useAuth } from '../../contexts/AuthContext'
 import { Link, router } from 'expo-router'
 
@@ -55,7 +56,7 @@ export default function SignUpScreen() {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Create Account</Text>
       <Text style={styles.subtitle}>Sign up to get started</Text>
 
@@ -109,7 +110,7 @@ export default function SignUpScreen() {
           </TouchableOpacity>
         </Link>
       </View>
-    </View>
+    </SafeAreaView>
   )
 }
 
