@@ -1,0 +1,2 @@
+/** Versioned key so existing stale values from previous app versions are ignored. */
+export const ONBOARDING_COMPLETED_KEY = "@onboarding_completed_v1";

@@ -1,6 +1,6 @@
 Overview
 
-Landmarks is a mobile app that enables users to share images and mapped locations of their favorite US national parks to a public social feed. The app promotes discovery, community, and nature appreciation through user-generated content.
+Landmarks is a mobile app that enables users to share images and mapped locations of their favorite Indian national parks to a public social feed. The app promotes discovery, community, and nature appreciation through user-generated content.
 
 Goals
 
