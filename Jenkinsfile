@@ -44,32 +44,31 @@ pipeline {
     stage('SonarQube Analysis') {
       steps {
         withSonarQubeEnv('SonarQube') {
-          sh """
-            ${SONAR_SCANNER_HOME}/bin/sonar-scanner
-          """
+          sh "${SONAR_SCANNER_HOME}/bin/sonar-scanner"
         }
       }
     }
 
     stage('Quality Gate') {
-  steps {
-    timeout(time: 5, unit: 'MINUTES') {
-      script {
-        def qg = waitForQualityGate()
-        echo "Quality Gate status: ${qg.status}"
-        if (qg.status != 'OK') {
-          error "Failed due to Quality Gate"
+      steps {
+        timeout(time: 5, unit: 'MINUTES') {
+          script {
+            def qg = waitForQualityGate()
+            echo "Quality Gate status: ${qg.status}"
+            if (qg.status != 'OK') {
+              error "Pipeline failed due to Quality Gate: ${qg.status}"
+            }
+          }
         }
       }
     }
   }
-}
-
-  }
 
   post {
     always {
-      cleanWs()
+      script {
+        cleanWs()
+      }
     }
   }
 }
