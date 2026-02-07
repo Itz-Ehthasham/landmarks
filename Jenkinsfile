@@ -42,6 +42,9 @@ pipeline {
     }
 
     stage('SonarQube Analysis') {
+      options {
+        timeout(time: 15, unit: 'MINUTES')
+      }
       steps {
         withSonarQubeEnv('SonarQube') {
           sh "${SONAR_SCANNER_HOME}/bin/sonar-scanner"
@@ -51,7 +54,7 @@ pipeline {
 
     stage('Quality Gate') {
       steps {
-        timeout(time: 5, unit: 'MINUTES') {
+        timeout(time: 15, unit: 'MINUTES') {
           script {
             def qg = waitForQualityGate()
             echo "Quality Gate status: ${qg.status}"
