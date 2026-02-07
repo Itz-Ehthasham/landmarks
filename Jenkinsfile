@@ -5,10 +5,6 @@ pipeline {
     nodejs 'node-20'
   }
 
-  options {
-    timeout(time: 60, unit: 'MINUTES')
-  }
-
   environment {
     SONAR_SCANNER_HOME = tool 'SonarScanner'
   }
@@ -42,9 +38,6 @@ pipeline {
     }
 
     stage('SonarQube Analysis') {
-      options {
-        timeout(time: 30, unit: 'MINUTES')
-      }
       steps {
         withSonarQubeEnv('SonarQube') {
           sh "${SONAR_SCANNER_HOME}/bin/sonar-scanner"
@@ -54,13 +47,11 @@ pipeline {
 
     stage('Quality Gate') {
       steps {
-        timeout(time: 15, unit: 'MINUTES') {
-          script {
-            def qg = waitForQualityGate()
-            echo "Quality Gate status: ${qg.status}"
-            if (qg.status != 'OK') {
-              error "Pipeline failed due to Quality Gate: ${qg.status}"
-            }
+        script {
+          def qg = waitForQualityGate()
+          echo "Quality Gate status: ${qg.status}"
+          if (qg.status != 'OK') {
+            error "Pipeline failed due to Quality Gate: ${qg.status}"
           }
         }
       }
