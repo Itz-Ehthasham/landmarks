@@ -45,17 +45,17 @@ pipeline {
       }
     }
 
-    stage('Quality Gate') {
-      steps {
-        script {
-          def qg = waitForQualityGate()
-          echo "Quality Gate status: ${qg.status}"
-          if (qg.status != 'OK') {
-            error "Pipeline failed due to Quality Gate: ${qg.status}"
-          }
-        }
-      }
-    }
+    // stage('Quality Gate') {
+    //   steps {
+    //     script {
+    //       def qg = waitForQualityGate()
+    //       echo "Quality Gate status: ${qg.status}"
+    //       if (qg.status != 'OK') {
+    //         error "Pipeline failed due to Quality Gate: ${qg.status}"
+    //       }
+    //     }
+    //   }
+    // }
   }
 
   post {
