@@ -1,6 +1,6 @@
 # Landmarks
 
-A mobile app that enables users to discover, share, and explore images and mapped locations of India's most beautiful national parks through a social feed.
+A mobile app that enables users to discover, share, and explore images and mapped locations of India's most beautiful national parks through a social feed. scrolling available
 
 ## 📱 Overview
 
