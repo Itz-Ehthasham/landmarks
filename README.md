@@ -1,10 +1,51 @@
 # Landmarks
 
-A mobile app that enables users to discover, share, and explore images and mapped locations of India's most beautiful national parks through a social feed.
+**A Social Platform for India's National Parks**
 
-## 📱 Overview
+---
 
-**Landmarks** is a React Native social platform dedicated to celebrating Indian national parks. Users can:
+## 🚀 CI/CD Pipeline
+
+This project implements a comprehensive Jenkins CI/CD pipeline with automated code quality checks through SonarQube integration. The pipeline ensures code quality, runs automated tests, and maintains high development standards.
+
+### Pipeline Architecture
+
+The CI/CD pipeline consists of the following stages executed sequentially:
+
+1. **Checkout SCM** - Retrieves the latest source code from the version control system
+2. **Tool Install** - Installs required Node.js tools and dependencies
+3. **Install** - Runs npm install to download all project dependencies
+4. **Lint** - Performs code linting using ESLint to enforce code style standards
+5. **TypeCheck** - Validates TypeScript types to catch type-related errors
+6. **Test** - Executes automated test suites to verify functionality
+7. **SonarQube Analysis** - Performs comprehensive code quality and security analysis
+8. **Post Actions** - Cleanup tasks including workspace deletion upon build completion
+
+### SonarQube Integration
+
+The pipeline includes SonarQube for automated code quality analysis, providing insights into:
+
+- Code coverage and test quality
+- Security vulnerabilities and code smells
+- Code duplication and complexity metrics
+- Technical debt assessment
+- Maintainability ratings and quality gates
+
+### Pipeline Benefits
+
+- **Automated Quality Checks** - Every code change is automatically validated against quality standards
+- **Early Bug Detection** - Issues are caught during the build process before deployment
+- **Consistent Standards** - Enforces coding standards and best practices across the team
+- **Fast Feedback Loop** - Developers receive immediate feedback on code quality
+- **Clean Workspace** - Automated cleanup ensures optimal resource utilization
+
+---
+
+## 📱 Project Overview
+
+Landmarks is a React Native social platform that enables users to discover, share, and explore images and mapped locations of India's most beautiful national parks through an engaging social feed. Users can share photos of landmarks, tag locations using GPS integration, and connect with a community of nature enthusiasts.
+
+### Core Capabilities
 
 - 📸 **Share Photos** - Upload and share beautiful images of landmarks and national parks
 - 📍 **Location Tagging** - Pin exact locations using device GPS and interactive maps
